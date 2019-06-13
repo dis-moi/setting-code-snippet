@@ -1,0 +1,29 @@
+{
+  "name": "setting-code-snippet",
+  "version": "1.0.0",
+  "description": "Snippet of JavaScript that detects if the extension is installed and can push settings from a Website.",
+  "main": "dist/main.js",
+  "module": "src/index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/insitu-project/setting-code-snippet.git"
+  },
+  "author": "Benjamin Menant <bmenant@lmem.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/insitu-project/setting-code-snippet/issues"
+  },
+  "homepage": "https://github.com/insitu-project/setting-code-snippet#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "babel-loader": "^8.0.6",
+    "babel-minify-webpack-plugin": "^0.3.1",
+    "webpack": "^4.34.0",
+    "webpack-cli": "^3.3.4"
+  }
+}
