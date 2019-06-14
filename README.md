@@ -22,5 +22,32 @@ Finally, the setting code may be directly added to the HTML of any page on the c
 
 ### Installation
 
+### Usage
+
+1. I want to know whether or not the extension is installed, so I can make up my page accordingly.
+
+    ```javascript
+    lmem.onInstall(() => {
+      document.querySelector('body').textContent = 'Installation Completed!';
+    });
+    ```
+
+2. I want to push settings to the extension at will, so I can let the user trigger the settings for example.
+
+    ```javascript
+    const options = { subscriptions: ['jdoe'] };
+    lmem.pushSettings(options);
+    ```
+
+3. I want to know when settings have been set, so I can react and make up my page accordingly.
+
+    ```javascript
+    const options = { subscriptions: ['jdoe'] };
+    lmem.pushSettings(options, () => {
+      document.querySelector('body').textContent = 'Setup Completed!';
+    });
+    ```
+
+
 ### Options
 

@@ -1,17 +1,23 @@
 const path = require('path');
-const MinifyPlugin = require("babel-minify-webpack-plugin");
+const EnvironmentPlugin = require('webpack').EnvironmentPlugin;
+
+if (!process.env.EXTENSION_ID) {
+  throw ReferenceError('EXTENSION_ID environment variable is missing, please export it before running npm scripts!');
+}
+if (!process.env.REATTEMPT_TIMEOUT) {
+  throw ReferenceError('REATTEMPT_TIMEOUT environment variable is missing, please export it before running npm scripts!');
+}
 
 module.exports = Object.freeze({
-  mode: 'production',
   entry: './src/index.js',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
-    library: 'setupLmemExtention',
+    library: 'lmem',
     libraryTarget: 'window',
   },
   plugins: [
-    new MinifyPlugin(),
+    new EnvironmentPlugin(['EXTENSION_ID', 'REATTEMPT_TIMEOUT']),
   ],
   module: {
     rules: [
@@ -25,7 +31,7 @@ module.exports = Object.freeze({
               '@babel/plugin-transform-runtime',
             ],
             presets: [
-              '@babel/preset-env',
+              ['@babel/preset-env']
             ],
           },
         },
