@@ -22,6 +22,8 @@ Finally, the setting code may be directly added to the HTML of any page on the c
 
 ### Installation
 
+Inject `dist/main.js` somewhere in your page.
+
 ### Usage
 
 1. I want to know whether or not the extension is installed, so I can make up my page accordingly.
@@ -51,3 +53,19 @@ Finally, the setting code may be directly added to the HTML of any page on the c
 
 ### Options
 
+Yet to be defined... **FIXME**
+
+## Development
+
+1. `npm install`
+2. `npm run start`
+
+#### Build
+
+1. `export EXTENSION_ID=xyz` (required)
+2. `export REATTEMPT_TIMEOUT=1000` (required)
+3. `npm run build`
+
+#### Test
+
+- `npm run test`
