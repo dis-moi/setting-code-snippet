@@ -84,9 +84,9 @@ title: Setting Code Snippet Sample Page
     <header>
         <nav class="uk-navbar-container" uk-navbar>
             <div class="uk-navbar-left">
-                <a href="{% link index.md %}" class="uk-navbar-item uk-logo">{{ layout.title }}</a>
+                <a href="{{ site.baseurl }}{% link index.md %}" class="uk-navbar-item uk-logo">{{ layout.title }}</a>
                 <ul class="uk-navbar-nav">
-                    {% capture linkToIndex %}{% link index.md %}{% endcapture %}
+                    {% capture linkToIndex %}{{ site.baseurl }}{% link index.md %}{% endcapture %}
                     {% include navlink.html url=linkToIndex title="Getting Started" %}
 
                     {% capture linkToOnInstall %}{% link on-install.html %}{% endcapture %}
