@@ -1,0 +1,50 @@
+---
+layout: snippet-loaded
+permalink: on-install
+title: onInstall( callback )
+---
+
+<div class="uk-grid-divider" uk-grid>
+    <div class="uk-width-1-2">
+        <div class="uk-background-default uk-padding uk-panel">
+            <p class="uk-text-lead">
+                Call the <code>callback</code> function when the extension installation completes.
+            </p>
+            <p class="uk-text-meta">
+                The <code>callback</code> is instantly called if the extension had been already installed.
+            </p>
+        </div>
+    </div>
+    <div class="uk-width-expand">
+        <div class="uk-background-muted uk-padding uk-panel">
+{% highlight javascript %}
+lmem.onInstall(() =>
+    console.log('LMEM extension installed!'));
+{% endhighlight %}
+        </div>
+        <button id="btn-run" class="uk-button uk-button-primary uk-width-1-1">
+            Run
+        </button>
+        <div id="alrt-init" class="uk-alert-primary" uk-alert>
+            <span uk-icon="icon: arrow-up; ratio: 1.2"></span> Click the button it to give it a try!
+        </div>
+        <div id="alrt-pending" class="uk-alert-warning" uk-alert hidden>
+            <div class="uk-margin-small-right" uk-spinner></div> Awaiting extension installation...
+        </div>
+        <div id="alrt-ok" class="uk-alert-success" uk-alert hidden>
+            <span uk-icon="icon: check; ratio: 1.2"></span> The extension is installed and has been detected!
+        </div>
+        <div id="alrt-ko" class="uk-alert-danger" uk-alert hidden>
+            <span uk-icon="icon: warning; ratio: 1.2"></span> Oops... Check the console for more infos.
+        </div>
+    </div>
+</div>
+
+<script>
+  (function() {
+    'use strict';
+    window.settingCodeSnippet.run((_return) => {
+      lmem.onInstall(() => _return('Congrats! LMEM extension installed!'));
+    });
+  })();
+</script>

@@ -1,0 +1,62 @@
+---
+layout: snippet-loaded
+permalink: push-settings
+title: pushSettings( options, callback )
+---
+
+<div class="uk-grid-divider" uk-grid>
+    <div class="uk-width-1-2">
+        <div class="uk-background-default uk-padding uk-panel">
+            <p class="uk-text-lead">
+                Push <code>options</code> to the extension and call the <code>callback</code> function when
+                the extension returns.
+            </p>
+            <p>
+                The <code>callback</code> is optional. <code>options</code> may contain:
+            </p>
+            <ul>
+                <li><code>subscriptions: []</code> a list of contributors identifiers to subscribe to.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="uk-width-expand">
+        <div class="uk-background-muted uk-padding uk-panel">
+{% highlight javascript %}
+const options = {
+    // ...
+    subscriptions: ['jdoe'],
+    // ...
+};
+lmem.pushSettings(options, () =>
+    console.log('LMEM extension set up!'));
+{% endhighlight %}
+        </div>
+        <button id="btn-run" class="uk-button uk-button-primary uk-width-1-1">
+            Run
+        </button>
+        <div id="alrt-init" class="uk-alert-primary" uk-alert>
+            <span uk-icon="icon: arrow-up; ratio: 1.2"></span> Click the button it to give it a try!
+        </div>
+        <div id="alrt-pending" class="uk-alert-warning" uk-alert hidden>
+            <div class="uk-margin-small-right" uk-spinner></div> Awaiting extension installation...
+        </div>
+        <div id="alrt-ok" class="uk-alert-success" uk-alert hidden>
+            <span uk-icon="icon: check; ratio: 1.2"></span> The extension is installed and set up!
+        </div>
+        <div id="alrt-ko" class="uk-alert-danger" uk-alert hidden>
+            <span uk-icon="icon: warning; ratio: 1.2"></span> Oops... Check the console for more infos.
+        </div>
+    </div>
+</div>
+
+<script>
+  (function() {
+    'use strict';
+    window.settingCodeSnippet.run((_return) => {
+      const options = {
+        subscriptions: ['jdoe'],
+      };
+      lmem.pushSettings(options, () => _return('Congrats! LMEM extension set up!'));
+    });
+  })();
+</script>
