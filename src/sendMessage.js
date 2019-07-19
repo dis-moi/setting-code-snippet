@@ -1,8 +1,10 @@
+const ns = typeof chrome === 'undefined' ? browser : chrome;
+
 export default function sendMessage(extId) {
   return (msg, callback) => {
     try {
-      chrome.runtime.sendMessage(extId, msg, () => {
-        callback(chrome.runtime.lastError || undefined);
+      ns.runtime.sendMessage(extId, !!msg && typeof(msg) === 'object' ? msg : {}, () => {
+        callback(ns.runtime.lastError || undefined);
       });
     }
     catch (e) {

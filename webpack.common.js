@@ -17,7 +17,11 @@ module.exports = Object.freeze({
     libraryTarget: 'window',
   },
   plugins: [
-    new EnvironmentPlugin(['EXTENSION_ID', 'REATTEMPT_TIMEOUT']),
+    new EnvironmentPlugin({
+      EXTENSION_ID: undefined,
+      REATTEMPT_TIMEOUT: undefined,
+      DEBUG: false,
+    }),
   ],
   module: {
     rules: [

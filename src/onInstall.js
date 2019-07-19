@@ -1,12 +1,13 @@
-export default function onInstall(sendMessage, timeout) {
+export default function onInstall(sendMessage, timeout, debug = false) {
   function recursive(callback) {
     sendMessage(null, (err) => {
       if (err) {
+        if (debug) console.error(err);
         setTimeout(() => recursive(callback), timeout);
       }
       else {
-        console.log('Successful Installation!');
-        callback();
+        if (debug) console.log('Successful Installation!');
+        if (typeof callback === 'function') callback();
       }
     });
   }
