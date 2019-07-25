@@ -66,6 +66,12 @@ Yet to be defined... **FIXME**
 2. `export REATTEMPT_TIMEOUT=1000` (required)
 3. `npm run build`
 
+> Alternatively you can create a `.env` file in the root directory to configure the environment variables:
+> ```
+> EXTENSION_ID=xyz
+> REATTEMPT_TIMEOUT=1000
+> ```
+
 #### Test
 
 - `npm run test`
