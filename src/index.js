@@ -13,5 +13,10 @@ export function onInstall(callback) {
 }
 
 export function pushSettings(options, callback) {
-  makePushInstall(sendMessage, timeout, debug)(options, callback);
+  makePushInstall(sendMessage, timeout, debug)({
+      type: 'SETUP',
+      payload: {
+          ...options
+      }
+  }, callback);
 }

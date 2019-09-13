@@ -24,7 +24,7 @@ title: pushSettings( options, callback )
 {% highlight javascript %}
 const options = {
     // ...
-    subscriptions: ['jdoe'],
+    subscriptions: [3] // Maarten SAMSON
     // ...
 };
 lmem.pushSettings(options, () =>
@@ -54,7 +54,7 @@ lmem.pushSettings(options, () =>
     'use strict';
     window.settingCodeSnippet.run((_return) => {
       const options = {
-        subscriptions: ['jdoe'],
+        subscriptions: [3] // Maarten SAMSON
       };
       lmem.pushSettings(options, () => _return('Congrats! LMEM extension set up!'));
     });

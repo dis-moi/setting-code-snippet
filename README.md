@@ -37,14 +37,14 @@ Inject `dist/main.js` somewhere in your page.
 2. I want to push settings to the extension at will, so I can let the user trigger the settings for example.
 
     ```javascript
-    const options = { subscriptions: ['jdoe'] };
+    const options = { subscriptions: [3] }; // Maarten SAMSON
     lmem.pushSettings(options);
     ```
 
 3. I want to know when settings have been set, so I can react and make up my page accordingly.
 
     ```javascript
-    const options = { subscriptions: ['jdoe'] };
+    const options = { subscriptions: [3] }; // Maarten SAMSON
     lmem.pushSettings(options, () => {
       document.querySelector('body').textContent = 'Setup Completed!';
     });
@@ -53,7 +53,7 @@ Inject `dist/main.js` somewhere in your page.
 
 ### Options
 
-Yet to be defined... **FIXME**
+- `subscriptions: []` a list of contributors identifiers to subscribe to
 
 ## Development
 
