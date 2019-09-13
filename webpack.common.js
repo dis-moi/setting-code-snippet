@@ -1,5 +1,8 @@
 const path = require('path');
 const EnvironmentPlugin = require('webpack').EnvironmentPlugin;
+const dotenv = require('dotenv');
+
+dotenv.config({ path: path.resolve('.env') });
 
 if (!process.env.EXTENSION_ID) {
   throw ReferenceError('EXTENSION_ID environment variable is missing, please export it before running npm scripts!');
