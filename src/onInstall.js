@@ -1,6 +1,6 @@
 export default function onInstall(sendMessage, timeout, debug = false) {
   function recursive(callback) {
-    sendMessage(null, (err) => {
+    sendMessage({ type: 'FETCH_INSTALLATION_DETAILS' }, (err) => {
       if (err) {
         if (debug) console.error(err);
         setTimeout(() => recursive(callback), timeout);
