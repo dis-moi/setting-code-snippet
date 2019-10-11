@@ -32,6 +32,17 @@ describe('when installed', () => {
 
     expect(cb).toHaveBeenCalled();
   });
+
+  test('should give the response away to the callback', () => {
+    const sendMsgMock = jest.fn((_,__) => __(undefined, 'bar'));
+    const onInstall = make(sendMsgMock);
+    const cb = jest.fn();
+    const msg = 'this is a message';
+
+    onInstall(msg, cb);
+
+    expect(cb).toHaveBeenCalledWith('bar');
+  });
 });
 
 describe('when not installed', () => {

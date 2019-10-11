@@ -18,7 +18,8 @@ describe('when installed', () => {
 
     const [[msg]] = sendMsgMock.mock.calls;
 
-    expect(msg).toBeNull();
+    expect(msg).toHaveProperty('type');
+    expect(msg.type).toBe('FETCH_INSTALLATION_DETAILS');
   });
 
   test('should call the callback', () => {
@@ -29,6 +30,16 @@ describe('when installed', () => {
     onInstall(cb);
 
     expect(cb).toHaveBeenCalled();
+  });
+
+  test('should give the response away to the callback', () => {
+    const sendMsgMock = jest.fn((_,__) => __(undefined, 'foo'));
+    const onInstall = make(sendMsgMock);
+    const cb = jest.fn();
+
+    onInstall(cb);
+
+    expect(cb).toHaveBeenCalledWith('foo');
   });
 });
 

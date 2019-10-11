@@ -30,6 +30,14 @@ lmem.onInstall(() => {
 });
 ```
 
+##### The extension answers with some infos such as the currently installed version...
+
+```javascript
+lmem.onInstall((installationDetails) => {
+  console.log(installationDetails);
+});
+```
+
 #### I want to push settings to the extension at will, so I can let the user trigger the settings for example.
 
 ```javascript
@@ -48,7 +56,7 @@ lmem.pushSettings(options, () => {
 
 ##### Options
 
-Yet to be defined... **FIXME**
+- `subscriptions: number[]` a list of contributors identifiers to subscribe to
 
 
 ---

@@ -18,8 +18,9 @@ title: onInstall( callback )
     <div class="uk-width-expand">
         <div class="uk-background-muted uk-padding uk-panel">
 {% highlight javascript %}
-lmem.onInstall(() =>
-    console.log('LMEM extension installed!'));
+lmem.onInstall((installationDetails) =>
+    console.log('LMEM extension installed!', installationDetails));
+
 {% endhighlight %}
         </div>
         <button id="btn-run" class="uk-button uk-button-primary uk-width-1-1">
@@ -44,7 +45,10 @@ lmem.onInstall(() =>
   (function() {
     'use strict';
     window.settingCodeSnippet.run((_return) => {
-      lmem.onInstall(() => _return('Congrats! LMEM extension installed!'));
+      lmem.onInstall((details) => {
+        console.log(details);
+        _return('Congrats! LMEM extension installed!');
+      });
     });
   })();
 </script>
